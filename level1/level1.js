@@ -6,20 +6,14 @@ ex) 길이기 80인 배열은 길이가 5로 분해한다면 16개의 배열을 
 */
 
 function division(array, num) {
-  let column, row;
+  const row = Math.ceil(array.length / num);
+  const copy = new Array(row);
 
-  array.forEach((item,idx) => {
-    idx++;
-    row = Math.ceil(idx / num);
-    column = idx % num;
-
-    // array = new Array(row);
-    // for (let i = 0; i < num; i++) {
-    //   array[row] = item;
-    // }
-
-  })
-  return row, column;
+  for (let i = 0; i < row; i++) {
+    copy[i] = array.slice(0 + i * num, num * (1 + i));
+  }
+  
+ return copy;
 }
 
 const example = [1,2,3,4,5,6,7,8,9,10,11,12];
